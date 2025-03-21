@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/21 16:50:38 by erbuffet          #+#    #+#             */
+/*   Updated: 2025/03/21 16:51:04 by erbuffet         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -21,9 +33,6 @@ typedef struct s_count
 	int				pace;
 	int				exit;
 	int				enemy;
-	int				player;
-	int				fire_ball;
-	int				collectible;
 }					t_count;
 
 typedef struct s_content

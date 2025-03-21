@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:37:19 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/12 02:59:23 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/21 16:51:42 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	move_ennemy_y(t_mlx_data *data)
 	y = (data->enemy_p.y) + 64;
 	y_2 = (data->enemy_p.y) - 64;
 	if (((data->player_p.y - data->enemy_p.y) > 0 && data->ground.grid[(y)
-			/ 64][(data->enemy_p.x) / 64] != '1') && ((data->player_p.y
+				/ 64][(data->enemy_p.x) / 64] != '1') && ((data->player_p.y
 				- data->enemy_p.y) > 0 && data->ground.grid[(y)
-			/ 64][(data->enemy_p.x) / 64] != 'C'))
+				/ 64][(data->enemy_p.x) / 64] != 'C'))
 	{
 		change_enemy(data, "./textures/ennemy/wolf_down.xpm");
 		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, data->floor.image,
