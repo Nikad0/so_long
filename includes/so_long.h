@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:50:38 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/21 16:51:04 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/21 17:06:24 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct s_count
 	int				pace;
 	int				exit;
 	int				enemy;
+	int				player;
+	int				collectible;
+	int				fire_ball;
 }					t_count;
 
 typedef struct s_content
