@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 02:09:24 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/12 03:08:57 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 17:47:37 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	grid_filling(t_mlx_data *data, char *map)
 	i = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		ft_exit(data, "Erreur d'ouverture du fichier\n");
+		ft_exit(data, "Erreur d'ouverture du fichier1\n");
 	line = get_next_line(fd);
 	while (line)
 	{

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:53:58 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/12 14:28:11 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 18:08:56 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ void	map_checker(t_mlx_data *data, char *map)
 
 	wall_checker_result = wall_checker(data);
 	ber = check_ber(map, ".ber");
+	if (ber != 0)
+		ft_exit(data, "Error\nmap is not in .ber !\n");
 	if (wall_checker_result != 0)
 		ft_exit(data, "Error\nmap is not closed !\n");
 	flood_fill(data, data->player_p.x / 64, data->player_p.y / 64);
 	if (data->count.exit != 1 || data->count.player != 1)
 		ft_exit(data, "Error\nmap need 1 exit or player !\n");
-	if (ber != 0)
-		ft_exit(data, "Error\nmap is not in .ber !\n");
 	if (data->count.exit != data->staff_count.exit_s)
 		ft_exit(data, "Error\nexit can't be reached !\n");
 	if (data->count.collectible != data->staff_count.collectible_s)

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:47:38 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/12 03:01:51 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 18:11:00 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ int	main(int ac, char **av)
 	ft_memset(&data, 0, sizeof(t_mlx_data));
 	if (ac != 2)
 		ft_exit(&data, "NO_FILE\n");
-	fd_checker(&data, av[1]);
 	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		ft_exit(&data, "error mlx\n");
+	fd_checker(&data, av[1]);
 	map_init(av[1], &data);
 	map_dup_init(av[1], &data);
 	map_checker(&data, av[1]);

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:27:24 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/11 21:49:16 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 20:08:09 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	first_line_lenght(char *line)
 {
 	size_t	line_length;
 
+	if (line == NULL || *line == '\0')
+		return (0);
 	line_length = ft_strlen(line);
 	if (line[line_length - 1] == '\n')
 		line[line_length - 1] = '\0';
@@ -24,7 +26,8 @@ int	first_line_lenght(char *line)
 
 void	t_close(t_mlx_data *data, int fd, char *line)
 {
-	free(line);
+	if (line)
+		free(line);
 	close(fd);
 	ft_exit(data, "Error: verrify maps!\n");
 }
@@ -45,7 +48,7 @@ void	fd_checker(t_mlx_data *data, char *map)
 	while (line)
 	{
 		line_length = ft_strlen(line);
-		if (line[line_length - 1] == '\n')
+		if (line_length > 0 && line[line_length - 1] == '\n')
 			line[line_length - 1] = '\0';
 		if (ft_strlen(line) != first_line_length)
 			t_close(data, fd, line);

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 16:22:26 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/12 03:02:13 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 16:29:18 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	render_top(t_mlx_data *data)
 
 	new_pos_y = (data->player_p.y) - 64;
 	change_player(data, "./textures/player/up1.xpm");
+	if (!data->player.image)
+		ft_exit(data, "error mlx_image \n");
 	if (data->ground.grid[(new_pos_y) / 64][(data->player_p.x) / 64] != '1')
 	{
 		ft_printf("%d\n", data->count.pace++);
@@ -50,6 +52,8 @@ void	render_down(t_mlx_data *data)
 
 	new_pos_y = (data->player_p.y) + 64;
 	change_player(data, "./textures/player/down1.xpm");
+	if (!data->player.image)
+		ft_exit(data, "error mlx_image \n");
 	if (data->ground.grid[(new_pos_y) / 64][(data->player_p.x) / 64] != '1')
 	{
 		ft_printf("%d\n", data->count.pace++);
@@ -65,6 +69,8 @@ void	render_left(t_mlx_data *data)
 
 	new_x = (data->player_p.x) - 64;
 	change_player(data, "./textures/player/left1.xpm");
+	if (!data->player.image)
+		ft_exit(data, "error mlx_image \n");
 	if (data->ground.grid[(data->player_p.y) / 64][(new_x) / 64] != '1')
 	{
 		ft_printf("%d\n", data->count.pace++);
@@ -80,6 +86,8 @@ void	render_right(t_mlx_data *data)
 
 	new_x = (data->player_p.x) + 64;
 	change_player(data, "./textures/player/right1.xpm");
+	if (!data->player.image)
+		ft_exit(data, "error mlx_image \n");
 	if (data->ground.grid[(data->player_p.y) / 64][(new_x) / 64] != '1')
 	{
 		ft_printf("%d\n", data->count.pace++);

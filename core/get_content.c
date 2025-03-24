@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 01:55:22 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/21 16:51:13 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/19 12:34:08 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	check_content(t_mlx_data *data)
 	{
 		while (data->ground.grid[i][j])
 		{
-			if (data->ground.grid[i][j] != '1' && data->ground.grid[i][j] != '0'
+			if (data->ground.grid[i][j] != '1'
+				&& data->ground.grid[i][j] != '0'
 				&& data->ground.grid[i][j] != 'P'
 				&& data->ground.grid[i][j] != 'C'
 				&& data->ground.grid[i][j] != 'E'

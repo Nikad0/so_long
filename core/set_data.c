@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:20:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/11 21:47:47 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 20:21:23 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,33 @@ void	set_data_path(t_mlx_data *data)
 	data->fire_ball.path = "./textures/utils/fire_ball_left.xpm";
 	if (!file_exists(data->fire_ball.path))
 		ft_exit(data, "Error: fire_ball_left texture file not found\n");
+	data->count.pace = 1;
 }
 
 void	set_data_img(t_mlx_data *data)
 {
 	set_data_path(data);
-	data->count.pace = 1;
 	data->floor.image = mlx_xpm_file_to_image(data->mlx_ptr, data->floor.path,
 			&data->floor.width, &data->floor.height);
+	if (!data->floor.image)
+		ft_exit(data, "error loading image !\n");
 	data->player.image = mlx_xpm_file_to_image(data->mlx_ptr, data->player.path,
 			&data->player.width, &data->player.height);
+	if (!data->player.image)
+		ft_exit(data, "error loading image !\n");
 	data->collectible.image = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->collectible.path, &data->collectible.width,
 			&data->collectible.height);
+	if (!data->collectible.image)
+		ft_exit(data, "error loading image !\n");
 	data->wall.image = mlx_xpm_file_to_image(data->mlx_ptr, data->wall.path,
 			&data->wall.width, &data->wall.height);
+	if (!data->wall.image)
+		ft_exit(data, "error loading image !\n");
 	data->exit.image = mlx_xpm_file_to_image(data->mlx_ptr, data->exit.path,
 			&data->exit.width, &data->exit.height);
+	if (!data->exit.image)
+		ft_exit(data, "error loading image !\n");
 	if (data->count.enemy != 0)
 		data->enemy.image = mlx_xpm_file_to_image(data->mlx_ptr,
 				data->enemy.path, &data->enemy.width, &data->enemy.height);

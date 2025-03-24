@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:23:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/21 17:05:15 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 16:27:26 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	change_player(t_mlx_data *data, char *new_image_path)
 	data->player.image = mlx_xpm_file_to_image(data->mlx_ptr, new_image_path,
 			&data->player.width, &data->player.height);
 	if (!data->player.image)
-		return ;
+		ft_exit(data, "error mlx_image \n");
 }
 
 void	draw_map(t_mlx_data *data)
@@ -59,6 +59,9 @@ void	draw_image(t_mlx_data *data)
 	if (data->count.enemy != 0)
 		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, data->enemy.image,
 			data->enemy_p.x, data->enemy_p.y);
+	if (data->count.fire_ball != 0)
+		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win,
+			data->fire_ball.image, data->enemy_p.x, data->enemy_p.y);
 	if (data->count.player != 0)
 		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win,
 			data->player.image, data->player_p.x, data->player_p.y);
