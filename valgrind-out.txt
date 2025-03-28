@@ -1,0 +1,707 @@
+==57370== Memcheck, a memory error detector
+==57370== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==57370== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==57370== Command: ./so_long maps/enemy.ber
+==57370== Parent PID: 53189
+==57370== 
+--57370-- 
+--57370-- Valgrind options:
+--57370--    --leak-check=full
+--57370--    --show-leak-kinds=all
+--57370--    --track-origins=yes
+--57370--    --verbose
+--57370--    --log-file=valgrind-out.txt
+--57370-- Contents of /proc/version:
+--57370--   Linux version 5.15.0-135-generic (buildd@lcy02-amd64-070) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #146-Ubuntu SMP Sat Feb 15 17:06:22 UTC 2025
+--57370-- 
+--57370-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--57370-- Page sizes: currently 4096, max supported 4096
+--57370-- Valgrind library directory: /usr/libexec/valgrind
+--57370-- Reading syms from /home/erbuffet/Documents/en_cours/so_long2/so_long
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--57370--   Considering /usr/lib/debug/.build-id/e4/de036b19e4768e7591b596c4be9f9015f2d28a.debug ..
+--57370--   .. build-id is valid
+--57370-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--57370--    object doesn't have a symbol table
+--57370--    object doesn't have a dynamic symbol table
+--57370-- Scheduler: using generic scheduler lock implementation.
+--57370-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==57370== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-57370-by-erbuffet-on-???
+==57370== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-57370-by-erbuffet-on-???
+==57370== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-57370-by-erbuffet-on-???
+==57370== 
+==57370== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==57370== don't want to do, unless you know exactly what you're doing,
+==57370== or are doing some strange experiment):
+==57370==   /usr/bin/vgdb --pid=57370 ...command...
+==57370== 
+==57370== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==57370==   /path/to/gdb ./so_long
+==57370== and then give GDB the following command
+==57370==   target remote | /usr/bin/vgdb --pid=57370
+==57370== --pid is optional if only one valgrind process is running
+==57370== 
+--57370-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--57370-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--57370-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--57370--    object doesn't have a symbol table
+==57370== WARNING: new redirection conflicts with existing -- ignoring it
+--57370--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--57370--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--57370-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--57370-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--57370--   Considering /usr/lib/debug/.build-id/cd/410b710f0f094c6832edd95931006d883af48e.debug ..
+--57370--   .. build-id is valid
+==57370== WARNING: new redirection conflicts with existing -- ignoring it
+--57370--     old: 0x04a6ec60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--57370--     new: 0x04a6ec60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==57370== WARNING: new redirection conflicts with existing -- ignoring it
+--57370--     old: 0x04a6ec60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--57370--     new: 0x04a6ec60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==57370== WARNING: new redirection conflicts with existing -- ignoring it
+--57370--     old: 0x04a6ec60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--57370--     new: 0x04a6ec60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==57370== WARNING: new redirection conflicts with existing -- ignoring it
+--57370--     old: 0x04a6ec60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--57370--     new: 0x04a6ec60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+--57370--    object doesn't have a symbol table
+--57370-- Reading syms from /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+--57370--    object doesn't have a symbol table
+--57370-- REDIR: 0x4a71720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a719e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a712e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a8fcd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a726d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a8e540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72c10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a8e370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a71260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a71960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a725a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==57370== Preferring higher priority redirection:
+--57370--     old: 0x04b697c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--57370--     new: 0x04b697c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--57370-- REDIR: 0x4a8e3f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a729e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a8e9b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a71830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72a70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a71420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a8e470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a711d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72b60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a7a570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a74010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a71390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72b10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a716a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a718d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a723f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a71b00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a727d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a72ac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4a73f80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--57370-- REDIR: 0x4b66610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--57370-- REDIR: 0x4a6e0a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--57370-- REDIR: 0x4b667e0 (libc.so.6:__strlen_avx2) redirected to 0x484ed10 (strlen)
+--57370-- REDIR: 0x4b61d80 (libc.so.6:__strncmp_avx2) redirected to 0x484f3e0 (strncmp)
+--57370-- REDIR: 0x4a6f520 (libc.so.6:calloc) redirected to 0x484d9d0 (calloc)
+--57370-- REDIR: 0x4b697c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--57370-- REDIR: 0x4a6e3e0 (libc.so.6:free) redirected to 0x484b210 (free)
+--57370-- REDIR: 0x4b66400 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
+--57370-- REDIR: 0x4afd7e0 (libc.so.6:__strcpy_chk) redirected to 0x48533a0 (__strcpy_chk)
+--57370-- REDIR: 0x4a71fc0 (libc.so.6:__GI_strstr) redirected to 0x4853ae0 (__strstr_sse2)
+--57370-- REDIR: 0x4b62a80 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4852010 (bcmp)
+--57370-- REDIR: 0x4b69f80 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852770 (memset)
+--57370-- REDIR: 0x4b69780 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4853440 (mempcpy)
+--57370-- REDIR: 0x4a6e740 (libc.so.6:realloc) redirected to 0x484dc50 (realloc)
+--57370-- REDIR: 0x4b68040 (libc.so.6:__strncpy_avx2) redirected to 0x484efe0 (strncpy)
+--57370-- REDIR: 0x4b61940 (libc.so.6:__strcmp_avx2) redirected to 0x484fbd0 (strcmp)
+--57370-- REDIR: 0x4b67cb0 (libc.so.6:__strcpy_avx2) redirected to 0x484ee60 (strcpy)
+==57370== Invalid read of size 8
+==57370==    at 0x112F01: mlx_put_image_to_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10ED5D: draw_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EE13: main_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112C5C: mlx_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EA4E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==  Address 0x10 is not stack'd, malloc'd or (recently) free'd
+==57370== 
+==57370== 
+==57370== Process terminating with default action of signal 11 (SIGSEGV)
+==57370==  Access not within mapped region at address 0x10
+==57370==    at 0x112F01: mlx_put_image_to_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10ED5D: draw_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EE13: main_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112C5C: mlx_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EA4E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==  If you believe this happened as a result of a stack
+==57370==  overflow in your program's main thread (unlikely but
+==57370==  possible), you can try to increase the size of the
+==57370==  main thread stack using the --main-stacksize= flag.
+==57370==  The main thread stack size used in this run was 8388608.
+==57370== 
+==57370== HEAP SUMMARY:
+==57370==     in use at exit: 497,625 bytes in 2,067 blocks
+==57370==   total heap usage: 7,085 allocs, 5,018 frees, 646,837 bytes allocated
+==57370== 
+==57370== Searching for pointers to 2,067 not-freed blocks
+==57370== Checked 502,792 bytes
+==57370== 
+==57370== 3 bytes in 1 blocks are still reachable in loss record 1 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4A7158E: strdup (strdup.c:42)
+==57370==    by 0x48B8B45: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 8 bytes in 1 blocks are still reachable in loss record 2 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4A7158E: strdup (strdup.c:42)
+==57370==    by 0x48B59AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x487A820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 8 bytes in 1 blocks are still reachable in loss record 3 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4878B34: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A9DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 10 bytes in 1 blocks are still reachable in loss record 4 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4A7158E: strdup (strdup.c:42)
+==57370==    by 0x48B59AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x491F213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B96A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 16 bytes in 1 blocks are still reachable in loss record 5 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4C012EE: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C01E6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x48C8EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 21 bytes in 1 blocks are still reachable in loss record 6 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B903E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 24 bytes in 1 blocks are still reachable in loss record 7 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x487A041: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A4CC: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A9C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 24 bytes in 1 blocks are still reachable in loss record 8 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4A7158E: strdup (strdup.c:42)
+==57370==    by 0x48B59AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x487A820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A50A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A9C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 24 bytes in 1 blocks are still reachable in loss record 9 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x487A9F5: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 24 bytes in 1 blocks are still reachable in loss record 10 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48C6A65: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CF2C6: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CF77E: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112C47: mlx_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EA4E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 29 bytes in 1 blocks are still reachable in loss record 11 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B20CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B4929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112962: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 32 bytes in 1 blocks are still reachable in loss record 12 of 63
+==57370==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4C0515E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C05237: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C052EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C05364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x48B952B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 32 bytes in 1 blocks are still reachable in loss record 13 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4BFE1B7: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4BFEA08: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4BFEEB0: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4BFFE44: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C05292: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C052EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C05364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x48B952B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 32 bytes in 1 blocks are still reachable in loss record 14 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x487A7FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 32 bytes in 1 blocks are still reachable in loss record 15 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x487A7FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A50A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A9C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 33 bytes in 1 blocks are still reachable in loss record 16 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B20CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B4929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x11294B: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 40 bytes in 1 blocks are still reachable in loss record 17 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48C91F1: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8E71: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 48 bytes in 1 blocks are still reachable in loss record 18 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48C8E71: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 48 bytes in 1 blocks are still reachable in loss record 19 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48C8E87: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 72 bytes in 1 blocks are still reachable in loss record 20 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B8F20: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 88 bytes in 1 blocks are still reachable in loss record 21 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1142BB: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F6F7: set_data_img_2 (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F793: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 88 bytes in 1 blocks are still reachable in loss record 22 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1142BB: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F7BA: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 88 bytes in 1 blocks are still reachable in loss record 23 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1142BB: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F812: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 88 bytes in 1 blocks are still reachable in loss record 24 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1142BB: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F867: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 88 bytes in 1 blocks are still reachable in loss record 25 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1142BB: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F8B6: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 112 bytes in 1 blocks are still reachable in loss record 26 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48C8D72: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 112 bytes in 1 blocks are still reachable in loss record 27 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B9200: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 128 bytes in 1 blocks are still reachable in loss record 28 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B912E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 128 bytes in 1 blocks are still reachable in loss record 29 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B599E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x491F213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B96A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 128 bytes in 1 blocks are still reachable in loss record 30 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B599E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x487A820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 128 bytes in 1 blocks are still reachable in loss record 31 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B599E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x487A820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A50A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A9C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are still reachable in loss record 32 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x11289F: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are still reachable in loss record 33 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48790C3: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1142E6: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F6F7: set_data_img_2 (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F793: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are still reachable in loss record 34 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48790C3: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1142E6: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F7BA: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are still reachable in loss record 35 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48790C3: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1142E6: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F812: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are still reachable in loss record 36 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48790C3: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1142E6: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F867: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are still reachable in loss record 37 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48790C3: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1142E6: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F8B6: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 136 bytes in 1 blocks are indirectly lost in loss record 38 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48790C3: XShmCreateImage (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1142E6: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F6A2: set_data_img_2 (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F793: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 149 bytes in 1 blocks are still reachable in loss record 39 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B9710: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 152 bytes in 1 blocks are still reachable in loss record 40 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x491F40E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B96A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 160 bytes in 1 blocks are still reachable in loss record 41 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48A79EF: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B95A4: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 160 bytes in 1 blocks are still reachable in loss record 42 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48A79EF: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112AEE: mlx_new_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E97E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 168 bytes in 1 blocks are still reachable in loss record 43 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B90B2: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 208 bytes in 1 blocks are still reachable in loss record 44 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4878AE9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487A9DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x487F9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==57370==    by 0x1126F3: mlx_int_deal_shm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112971: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 208 bytes in 1 blocks are still reachable in loss record 45 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CEEC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CF205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112DF5: mlx_int_wait_first_expose (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112B2D: mlx_new_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E97E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 224 (88 direct, 136 indirect) bytes in 1 blocks are definitely lost in loss record 46 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1142BB: mlx_int_new_xshm_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x1145E2: mlx_new_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113717: mlx_int_parse_xpm (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x113B51: mlx_xpm_file_to_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F6A2: set_data_img_2 (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10F793: set_data_img (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E8C0: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 264 bytes in 1 blocks are still reachable in loss record 47 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x110308: grid_allocation (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x110570: map_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E900: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 264 bytes in 1 blocks are still reachable in loss record 48 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x1110FC: grid_allocation (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x11136A: map_dup_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E920: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 416 bytes in 2 blocks are still reachable in loss record 49 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CEEC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CF1D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112DF5: mlx_int_wait_first_expose (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112B2D: mlx_new_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E97E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 512 bytes in 1 blocks are still reachable in loss record 50 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B446A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B484E: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x11294B: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 624 bytes in 3 blocks are still reachable in loss record 51 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDC69: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48A887D: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x10EC36: draw_map (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E9B9: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 936 bytes in 1 blocks are still reachable in loss record 52 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x112A50: mlx_new_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E97E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 1,872 bytes in 9 blocks are still reachable in loss record 53 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CEF01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CF1D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112DF5: mlx_int_wait_first_expose (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112B2D: mlx_new_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E97E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 1,952 bytes in 32 blocks are still reachable in loss record 54 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x11036D: grid_allocation (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x110570: map_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E900: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 1,952 bytes in 32 blocks are still reachable in loss record 55 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x111161: grid_allocation (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x11136A: map_dup_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E920: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 2,496 bytes in 12 blocks are still reachable in loss record 56 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CEF01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CF205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x112DF5: mlx_int_wait_first_expose (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112B2D: mlx_new_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E97E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 4,704 bytes in 1 blocks are still reachable in loss record 57 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B8B31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 12,308 bytes in 1 blocks are still reachable in loss record 58 of 63
+==57370==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4C014FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C01E6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x48C8EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 16,384 bytes in 1 blocks are still reachable in loss record 59 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B8EBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 21,168 bytes in 1 blocks are still reachable in loss record 60 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x4C01204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x4C01E6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==57370==    by 0x48C8EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48B8B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 28,224 bytes in 2 blocks are still reachable in loss record 61 of 63
+==57370==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48B9290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x1128B7: mlx_init (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E888: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 43,472 bytes in 209 blocks are still reachable in loss record 62 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDC69: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48A887D: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x10EB76: draw_map (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E9B9: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== 356,096 bytes in 1,712 blocks are still reachable in loss record 63 of 63
+==57370==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==57370==    by 0x48CAFAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDBB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48CDC69: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x48A887D: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==57370==    by 0x10EBD6: draw_map (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10E9B9: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370== 
+==57370== LEAK SUMMARY:
+==57370==    definitely lost: 88 bytes in 1 blocks
+==57370==    indirectly lost: 136 bytes in 1 blocks
+==57370==      possibly lost: 0 bytes in 0 blocks
+==57370==    still reachable: 497,401 bytes in 2,065 blocks
+==57370==         suppressed: 0 bytes in 0 blocks
+==57370== 
+==57370== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 1 from 1)
+==57370== 
+==57370== 1 errors in context 1 of 2:
+==57370== Invalid read of size 8
+==57370==    at 0x112F01: mlx_put_image_to_window (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10ED5D: draw_image (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EE13: main_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x112C5C: mlx_loop (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==    by 0x10EA4E: main (in /home/erbuffet/Documents/en_cours/so_long2/so_long)
+==57370==  Address 0x10 is not stack'd, malloc'd or (recently) free'd
+==57370== 
+--57370-- 
+--57370-- used_suppression:      1 X on SUSE11 writev uninit padding /usr/libexec/valgrind/default.supp:377
+==57370== 
+==57370== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 1 from 1)

@@ -6,16 +6,12 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:20:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/28 14:05:32 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/28 15:00:19 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	file_exists(const char *path)
-{
-	return (access(path, F_OK) != -1);
-}
 void	set_content(t_mlx_data *data)
 {
 	data->content.wall = '1';
@@ -35,19 +31,19 @@ void	set_content(t_mlx_data *data)
 void	set_data_path(t_mlx_data *data)
 {
 	data->floor.path = "./textures/map/sol.xpm";
-	if (!file_exists(data->floor.path))
+	if (open(data->floor.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: floor texture file not found\n");
 	data->collectible.path = "./textures/map/collectible.xpm";
-	if (!file_exists(data->collectible.path))
+	if (open(data->collectible.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: collectible texture file not found\n");
 	data->wall.path = "./textures/map/tree.xpm";
-	if (!file_exists(data->wall.path))
+	if (open(data->wall.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: wall texture file not found\n");
 	data->exit.path = "./textures/map/exit.xpm";
-	if (!file_exists(data->exit.path))
+	if (open(data->exit.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: exit texture file not found\n");
 	data->fire_ball.path = "./textures/utils/fire_ball_left.xpm";
-	if (!file_exists(data->fire_ball.path))
+	if (open(data->fire_ball.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: fire_ball_left texture file not found\n");
 	data->count.pace = 1;
 }
@@ -55,28 +51,28 @@ void	set_data_path(t_mlx_data *data)
 void	set_data_path_2(t_mlx_data *data)
 {
 	data->enemy.path = "./textures/ennemy/wolf_down.xpm";
-	if (!file_exists(data->enemy.path))
+	if (open(data->enemy.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: Enemy texture file not found\n");
 	data->enemy.path = "./textures/ennemy/wolf_up.xpm";
-	if (!file_exists(data->enemy.path))
+	if (open(data->enemy.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: Enemy texture file not found\n");
 	data->enemy.path = "./textures/ennemy/wolf_right.xpm";
-	if (!file_exists(data->enemy.path))
+	if (open(data->enemy.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: Enemy texture file not found\n");
 	data->enemy.path = "./textures/ennemy/wolf_left.xpm";
-	if (!file_exists(data->enemy.path))
+	if (open(data->enemy.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: Enemy texture file not found\n");
 	data->player.path = "./textures/player/down1.xpm";
-	if (!file_exists(data->player.path))
+	if (open(data->player.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: player texture file not found\n");
 	data->player.path = "./textures/player/up1.xpm";
-	if (!file_exists(data->player.path))
+	if (open(data->player.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: player texture file not found\n");
 	data->player.path = "./textures/player/left1.xpm";
-	if (!file_exists(data->player.path))
+	if (open(data->player.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: player texture file not found\n");
 	data->player.path = "./textures/player/right1.xpm";
-	if (!file_exists(data->player.path))
+	if (open(data->player.path, O_RDONLY) == -1)
 		ft_exit(data, "Error: player texture file not found\n");
 }
 
@@ -86,8 +82,6 @@ void	set_data_img_2(t_mlx_data *data)
 			&data->player.width, &data->player.height);
 	if (!data->player.image)
 		ft_exit(data, "error loading image !\n");
-	data->player.image = mlx_xpm_file_to_image(data->mlx_ptr, data->player.path,
-			&data->player.width, &data->player.height);
 	if (data->count.enemy != 0)
 	{
 		data->enemy.image = mlx_xpm_file_to_image(data->mlx_ptr,
