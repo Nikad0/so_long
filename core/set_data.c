@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:20:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 20:21:23 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/28 14:05:32 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	file_exists(const char *path)
 {
 	return (access(path, F_OK) != -1);
 }
-
 void	set_content(t_mlx_data *data)
 {
 	data->content.wall = '1';
@@ -35,15 +34,9 @@ void	set_content(t_mlx_data *data)
 
 void	set_data_path(t_mlx_data *data)
 {
-	data->enemy.path = "./textures/ennemy/wolf_down.xpm";
-	if (!file_exists(data->enemy.path))
-		ft_exit(data, "Error: Enemy texture file not found\n");
 	data->floor.path = "./textures/map/sol.xpm";
 	if (!file_exists(data->floor.path))
 		ft_exit(data, "Error: floor texture file not found\n");
-	data->player.path = "./textures/player/down1.xpm";
-	if (!file_exists(data->player.path))
-		ft_exit(data, "Error: player texture file not found\n");
 	data->collectible.path = "./textures/map/collectible.xpm";
 	if (!file_exists(data->collectible.path))
 		ft_exit(data, "Error: collectible texture file not found\n");
@@ -59,16 +52,59 @@ void	set_data_path(t_mlx_data *data)
 	data->count.pace = 1;
 }
 
-void	set_data_img(t_mlx_data *data)
+void	set_data_path_2(t_mlx_data *data)
 {
-	set_data_path(data);
-	data->floor.image = mlx_xpm_file_to_image(data->mlx_ptr, data->floor.path,
-			&data->floor.width, &data->floor.height);
-	if (!data->floor.image)
-		ft_exit(data, "error loading image !\n");
+	data->enemy.path = "./textures/ennemy/wolf_down.xpm";
+	if (!file_exists(data->enemy.path))
+		ft_exit(data, "Error: Enemy texture file not found\n");
+	data->enemy.path = "./textures/ennemy/wolf_up.xpm";
+	if (!file_exists(data->enemy.path))
+		ft_exit(data, "Error: Enemy texture file not found\n");
+	data->enemy.path = "./textures/ennemy/wolf_right.xpm";
+	if (!file_exists(data->enemy.path))
+		ft_exit(data, "Error: Enemy texture file not found\n");
+	data->enemy.path = "./textures/ennemy/wolf_left.xpm";
+	if (!file_exists(data->enemy.path))
+		ft_exit(data, "Error: Enemy texture file not found\n");
+	data->player.path = "./textures/player/down1.xpm";
+	if (!file_exists(data->player.path))
+		ft_exit(data, "Error: player texture file not found\n");
+	data->player.path = "./textures/player/up1.xpm";
+	if (!file_exists(data->player.path))
+		ft_exit(data, "Error: player texture file not found\n");
+	data->player.path = "./textures/player/left1.xpm";
+	if (!file_exists(data->player.path))
+		ft_exit(data, "Error: player texture file not found\n");
+	data->player.path = "./textures/player/right1.xpm";
+	if (!file_exists(data->player.path))
+		ft_exit(data, "Error: player texture file not found\n");
+}
+
+void	set_data_img_2(t_mlx_data *data)
+{
 	data->player.image = mlx_xpm_file_to_image(data->mlx_ptr, data->player.path,
 			&data->player.width, &data->player.height);
 	if (!data->player.image)
+		ft_exit(data, "error loading image !\n");
+	data->player.image = mlx_xpm_file_to_image(data->mlx_ptr, data->player.path,
+			&data->player.width, &data->player.height);
+	if (data->count.enemy != 0)
+	{
+		data->enemy.image = mlx_xpm_file_to_image(data->mlx_ptr,
+				data->enemy.path, &data->enemy.width, &data->enemy.height);
+		if (!data->enemy.image)
+			ft_exit(data, "error loading image !\n");
+	}
+}
+
+void	set_data_img(t_mlx_data *data)
+{
+	set_data_path(data);
+	set_data_path_2(data);
+	set_data_img_2(data);
+	data->floor.image = mlx_xpm_file_to_image(data->mlx_ptr, data->floor.path,
+			&data->floor.width, &data->floor.height);
+	if (!data->floor.image)
 		ft_exit(data, "error loading image !\n");
 	data->collectible.image = mlx_xpm_file_to_image(data->mlx_ptr,
 			data->collectible.path, &data->collectible.width,
@@ -83,7 +119,4 @@ void	set_data_img(t_mlx_data *data)
 			&data->exit.width, &data->exit.height);
 	if (!data->exit.image)
 		ft_exit(data, "error loading image !\n");
-	if (data->count.enemy != 0)
-		data->enemy.image = mlx_xpm_file_to_image(data->mlx_ptr,
-				data->enemy.path, &data->enemy.width, &data->enemy.height);
 }

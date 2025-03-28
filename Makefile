@@ -1,6 +1,6 @@
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra -fPIE -g3
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -fPIE
 NAME = so_long
 INCLUDES = -I./includes -I./Libft -I./rsrcs
 MLX_FLAGS = -L./rsrcs -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
@@ -21,15 +21,11 @@ SRC = core/main.c               \
 
 OBJ = $(SRC:.c=.o)
 
-all: libft mlx $(NAME)
-
-mlx:
-	@make -C rsrcs/
-
-libft:
-	@make -C Libft/
+all: $(NAME)
 
 $(NAME): $(OBJ)
+	@make -C Libft/
+	@make -C rsrcs/
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
 %.o: %.c includes/so_long.h

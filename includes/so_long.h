@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 16:50:38 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/21 17:06:24 by erbuffet         ###   ########lyon.fr   */
+/*   Created: 2025/03/24 15:26:31 by erbuffet          #+#    #+#             */
+/*   Updated: 2025/03/27 18:37:43 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <time.h>
 # include <unistd.h>
 
@@ -34,8 +35,8 @@ typedef struct s_count
 	int				exit;
 	int				enemy;
 	int				player;
-	int				collectible;
 	int				fire_ball;
+	int				collectible;
 }					t_count;
 
 typedef struct s_content
@@ -112,6 +113,7 @@ typedef struct s_mlx_data
 }					t_mlx_data;
 
 void				set_data(t_mlx_data *data);
+int					file_exists(const char *path);
 void				check_content(t_mlx_data *data);
 void				destroy_data(t_mlx_data *data);
 void				display_content(t_mlx_data *data);

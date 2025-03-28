@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:02:36 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/11 21:51:13 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 19:22:22 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_split(const char *s, char c)
 
 	i = 0;
 	j = 0;
-	array = (char **)malloc((ft_count_word(s, c) + 1) * sizeof(char *));
+	array = ft_calloc((ft_count_word(s, c) + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
 	while (j < ft_count_word(s, c))

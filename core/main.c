@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:47:38 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 18:11:00 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/28 13:25:48 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	ft_exit(t_mlx_data *data, char *msg)
 	destroy_data(data);
 	exit(-1);
 }
+
+
 
 int	main(int ac, char **av)
 {

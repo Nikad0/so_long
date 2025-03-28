@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:46:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 16:41:53 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 22:49:22 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ static void	grid_allocation(t_mlx_data *data)
 	i = 0;
 	data->map_dup.grid = malloc((data->map_dup.rows + 1) * sizeof(char *));
 	if (data->map_dup.grid == NULL)
-		ft_exit(data, "Erreur d'allocation mémoire pour les lignes.\n");
+		ft_exit(data, "Erreur d'allocation mémoire\n");
 	while (i < data->map_dup.rows)
 	{
 		data->map_dup.grid[i] = malloc((data->map_dup.cols + 1) * sizeof(char));
 		if (data->map_dup.grid[i] == NULL)
 		{
 			free_tab(data);
-			ft_exit(data, "Erreur d'allocation mémoire pour la ligne\n");
+			ft_exit(data, "Erreur d'allocation mémoire\n");
 		}
 		i++;
 	}

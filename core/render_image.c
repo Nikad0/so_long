@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:23:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 16:27:26 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/28 12:12:48 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ void	draw_map(t_mlx_data *data)
 		while (data->ground.grid[i][j])
 		{
 			if (data->ground.grid[i][j] == '1')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->mlx_win,
 					data->wall.image, j * 64, i * 64);
-			}
 			else if (data->ground.grid[i][j] == '0')
 				mlx_put_image_to_window(data->mlx_ptr, data->mlx_win,
 					data->floor.image, j * 64, i * 64);
@@ -53,7 +51,8 @@ void	draw_map(t_mlx_data *data)
 
 void	draw_image(t_mlx_data *data)
 {
-	if (data->count.exit != 0)
+	if (data->count.exit != 0 && (data->player_p.x != data->exit_p.x
+			|| data->player_p.y != data->exit_p.y))
 		mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, data->exit.image,
 			data->exit_p.x, data->exit_p.y);
 	if (data->count.enemy != 0)

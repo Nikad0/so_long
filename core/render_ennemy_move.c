@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:37:19 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 20:20:39 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/27 18:28:31 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	change_enemy(t_mlx_data *data, char *new_image_path)
 	data->enemy.image = mlx_xpm_file_to_image(data->mlx_ptr, new_image_path,
 			&data->enemy.width, &data->enemy.height);
 	if (!data->enemy.image)
-		return ;
+		ft_exit(data, "Message");
 }
 
 void	move_ennemy_x(t_mlx_data *data)
